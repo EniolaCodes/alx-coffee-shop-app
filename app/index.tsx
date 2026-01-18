@@ -1,19 +1,42 @@
 import CustomButton from "@/components/CustomButton";
-import { Text, View } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
+import { ImageBackground, StatusBar, Text, View } from "react-native";
 
 export default function Index() {
+  const router = useRouter();
+
   return (
-    <View className="flex-1 items-center justify-center ">
-      <Text className="text-5xl text-coffee bg-black font-bold">
-        Welcome to the Coffee Shop App
-      </Text>
-      <CustomButton
-        title="Get Started"
-        onPress={() => {
-          console.log("Button Pressed");
-        }}
-        variant="coffee"
-      />
-    </View>
+    <>
+      <StatusBar barStyle="light-content" />
+      <ImageBackground
+        source={require("../assets/images/coffee-1.png")}
+        className="flex-1"
+        resizeMode="cover"
+      >
+        <LinearGradient
+          // colors={["transparent", "rgba(5,5,5,0)", "rgba(5,5,5,1)"]}
+          colors={["transparent", "rgba(0,0,0,0.2)", "rgba(0,0,0,0.85)"]}
+          className="flex-1 justify-end"
+        ></LinearGradient>
+        <View className="px-8 items-center pb-20">
+          <Text className="text-foundationWhite text-[32px] font-semibold text-center">
+            Fall in Love with Coffee in Blissful Delight!
+          </Text>
+
+          <Text className="text-foundationGrey text-center mt-4 text-[14px] px-2">
+            Welcome to our cozy coffee corner, where every cup is a delightful
+            for you.
+          </Text>
+
+          <View className="w-full mt-10">
+            <CustomButton
+              title="Get Started"
+              onPress={() => router.push("/home")}
+            />
+          </View>
+        </View>
+      </ImageBackground>
+    </>
   );
 }

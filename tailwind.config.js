@@ -14,6 +14,7 @@ module.exports = {
         foundationGrey: "#A2A2A2",
         foundationBlack: "#242424",
         foundationSurface: "#E3E3E3",
+        shadowColor: "#050505",
       },
     },
   },
