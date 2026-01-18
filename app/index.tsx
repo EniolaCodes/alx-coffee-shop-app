@@ -1,3 +1,4 @@
+import CustomButton from "@/components/CustomButton";
 import { Text, View } from "react-native";
 
 export default function Index() {
@@ -6,6 +7,13 @@ export default function Index() {
       <Text className="text-5xl text-coffee bg-black font-bold">
         Welcome to the Coffee Shop App
       </Text>
+      <CustomButton
+        title="Get Started"
+        onPress={() => {
+          console.log("Button Pressed");
+        }}
+        variant="coffee"
+      />
     </View>
   );
 }
