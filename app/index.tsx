@@ -17,9 +17,9 @@ export default function Index() {
         <LinearGradient
           // colors={["transparent", "rgba(5,5,5,0)", "rgba(5,5,5,1)"]}
           colors={["transparent", "rgba(0,0,0,0.2)", "rgba(0,0,0,0.85)"]}
-          className="flex-1 justify-end"
+          className="flex-1 justify-self-end p-8"
         ></LinearGradient>
-        <View className="px-8 items-center pb-20">
+        <View className="px-8 pb-32">
           <Text className="text-foundationWhite text-[32px] font-semibold text-center">
             Fall in Love with Coffee in Blissful Delight!
           </Text>
