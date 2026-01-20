@@ -17,6 +17,7 @@ module.exports = {
         foundationSurfaceNormal: "#D8D8D8",
         shadowColor: "#050505",
         starColor: "#FBBE21",
+        green: "#36C07E",
       },
     },
   },
