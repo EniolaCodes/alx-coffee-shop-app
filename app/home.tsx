@@ -74,7 +74,6 @@ export const COFFEE_DATA = [
   },
 ];
 
-// Define hex codes to match your NativeWind theme for the icons
 const COLORS = {
   coffee: "#C67C4E",
   foundationGrey: "#A9A9A9",

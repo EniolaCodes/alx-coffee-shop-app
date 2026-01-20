@@ -100,8 +100,3 @@ export default function DeliveryScreen() {
     </View>
   );
 }
-
-// const mapStyle = [
-//   { featureType: "poi", stylers: [{ visibility: "off" }] },
-//   { featureType: "transit", stylers: [{ visibility: "off" }] },
-// ];

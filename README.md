@@ -17,7 +17,8 @@ A delightful mobile application for coffee lovers, built with React Native and E
 - **Styling**: NativeWind (Tailwind CSS for React Native)
 - **Language**: TypeScript
 - **State Management**: React Hooks
-- **Icons & Images**: Expo Asset Management
+- **Maps**: React Native Maps with Google Maps provider
+- **Icons & Images**: Expo Asset Management, Lucide React Native
 
 ## Prerequisites
 
@@ -47,6 +48,8 @@ A delightful mobile application for coffee lovers, built with React Native and E
    npx expo install expo-linear-gradient
    npx expo install expo-router
    npx expo install react-native-safe-area-context
+   npx expo install react-native-maps
+   npx expo install lucide-react-native
    ```
 
 4. **Set up NativeWind**
@@ -79,15 +82,23 @@ Update your `tailwind.config.js`:
 ```js
 module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
+  presets: [require("nativewind/preset")],
   theme: {
     extend: {
       colors: {
-        coffee: "#8B4513",
+        coffee: "#C67C4E",
+        black: "#313131",
+        grey: "#E3E3E3",
+        lightPink: "#F9F2ED",
+        deepPink: "#EDD6C8",
         foundationWhite: "#FFFFFF",
-        foundationBlack: "#000000",
-        foundationSurface: "#F5F5F5",
-        foundationGrey: "#808080",
-        shadowColor: "#000000",
+        foundationGrey: "#A2A2A2",
+        foundationBlack: "#242424",
+        foundationSurface: "#E3E3E3",
+        foundationSurfaceNormal: "#D8D8D8",
+        shadowColor: "#050505",
+        starColor: "#FBBE21",
+        green: "#36C07E",
       },
     },
   },
@@ -102,6 +113,36 @@ Import your global CSS in the root layout (`app/_layout.tsx`):
 ```tsx
 import "../globals.css";
 ```
+
+### Maps Configuration
+
+For the delivery tracking feature, configure Google Maps:
+
+1. **Get a Google Maps API Key** from [Google Cloud Console](https://console.cloud.google.com/)
+2. **Enable Maps SDK for Android and iOS**
+3. **Add to app.json**:
+
+```json
+{
+  "expo": {
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 34,
+            "targetSdkVersion": 34,
+            "buildToolsVersion": "34.0.0"
+          },
+          "ios": {}
+        }
+      ]
+    ]
+  }
+}
+```
+
+4. **Set environment variables** in `.env` or directly in app.json for the API key
 
 ## Running the App
 
@@ -123,18 +164,25 @@ alx-coffee-shop-app/
 ├── app/
 │   ├── _layout.tsx          # Root layout
 │   ├── index.tsx            # Welcome screen
-│   ├── home.tsx             # Home screen
-│   ├── delivery.tsx         # Delivery tracking
-│   ├── details.tsx          # Product details
-│   ├── order.tsx            # Order screen
+│   ├── home.tsx             # Home screen with coffee menu
+│   ├── delivery.tsx         # Delivery tracking with map
+│   ├── order.tsx            # Order placement screen
+│   ├── details/
+│   │   └── [id].tsx         # Dynamic product details page
 │   └── globals.css          # Global styles
 ├── components/
-│   └── CustomButton.tsx     # Reusable button component
+│   ├── CoffeeCard.tsx       # Coffee item card component
+│   ├── CustomButton.tsx     # Reusable button component
+│   ├── MapComponent.tsx     # Map placeholder for web
+│   └── MapComponent.native.tsx # Interactive map for native platforms
 ├── assets/
-│   └── images/              # App images
+│   └── images/              # App images and icons
+├── app.json                 # Expo app configuration
 ├── package.json
 ├── tailwind.config.js
 ├── metro.config.js
+├── babel.config.js
+├── tsconfig.json
 └── README.md
 ```
 
@@ -155,6 +203,23 @@ Usage:
   onPress={() => console.log("Pressed")}
   variant="coffee"
 />
+```
+
+### CoffeeCard
+
+Displays coffee items with image, name, price, and rating. Supports navigation to details page.
+
+### MapComponent
+
+Platform-specific map component for delivery tracking:
+
+- **Native**: Interactive Google Maps with markers and polylines showing delivery route
+- **Web**: Placeholder view indicating map is not supported on web
+
+Usage:
+
+```tsx
+<MapComponent region={region} deliveryRoute={coordinates} />
 ```
 
 ## Troubleshooting

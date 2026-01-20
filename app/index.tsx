@@ -15,7 +15,6 @@ export default function Index() {
         resizeMode="cover"
       >
         <LinearGradient
-          // colors={["transparent", "rgba(5,5,5,0)", "rgba(5,5,5,1)"]}
           colors={["transparent", "rgba(0,0,0,0.2)", "rgba(0,0,0,0.85)"]}
           className="flex-1 justify-self-end p-8"
         ></LinearGradient>

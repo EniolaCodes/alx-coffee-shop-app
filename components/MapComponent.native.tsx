@@ -42,7 +42,7 @@ export default function MapComponent({ region, deliveryRoute }: MapProps) {
       <Polyline
         coordinates={deliveryRoute}
         strokeColor="#C67C4E"
-        strokeWidth={6}
+        strokeWidth={5}
       />
     </MapView>
   );
