@@ -9,7 +9,7 @@ module.exports = {
         black: "#313131",
         grey: "#E3E3E3",
         lightPink: "#F9F2ED",
-        deepPink: "EDD6C8",
+        deepPink: "#EDD6C8",
         foundationWhite: "#FFFFFF",
         foundationGrey: "#A2A2A2",
         foundationBlack: "#242424",

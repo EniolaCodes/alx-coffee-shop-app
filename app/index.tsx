@@ -33,6 +33,7 @@ export default function Index() {
             <CustomButton
               title="Get Started"
               onPress={() => router.push("/home")}
+              containerStyles="w-full rounded-full"
             />
           </View>
         </View>

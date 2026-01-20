@@ -23,7 +23,7 @@ import {
 
 const categories = ["All Coffee", "Machiato", "Latte", "Americano"];
 
-const COFFEE_DATA = [
+export const COFFEE_DATA = [
   {
     id: "1",
     name: "Caffe Mocha",
